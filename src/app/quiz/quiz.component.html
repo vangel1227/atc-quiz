@@ -1,25 +1,31 @@
-<div class="container">
+<div class="container-fluid" style="margin-top: 20px;">
     <div *ngIf="prevAnswered.length < 11">
-    <p class="text-center">{{ prevAnswered.length }} of {{ quizzes.length }}</p>
-    <h1>{{ quizzes[currentQuiz].question }}</h1>
+    <h1 class="text-center">{{ quizzes[currentQuiz].question }}</h1>
 
-<div class="answers" >
-<ul class="answers__list" *ngFor="let quiz of quizzes[currentQuiz].answer" >
-    <label><li @answer class="answers__item" appBackground [correctAnswer]="quiz.correct">
-        <input  type="radio" name="options" (change)="onAnswer(quiz.correct)" [disabled]="answerSelected">
+<div class=" text-center answers" style="margin-top: 20px;">
+<div class="btn-group-vertical answers__list" *ngFor="let quiz of quizzes[currentQuiz].answer" >
+    <button @answer class=" btn btn-warning answers__item" appBackground [correctAnswer]="quiz.correct" type="button" name="options" (click)="onAnswer(quiz.correct)" [disabled]="answerSelected" style="min-width: 300px; margin-top: 5px;">
         {{ quiz.option }}
-    </li></label>
-  </ul>
+    </button>
+  </div>
 </div>
+
+<h3 class="text-center" style="margin-top: 20px;">{{ prevAnswered.length }} of {{ quizzes.length }}</h3>
+
     
     </div>
 
 
-    <div *ngIf="prevAnswered.length > 10">
-    <button class="btn" (click)="showResult()" *ngIf="resultStatus === 'Show Result'">{{ resultStatus }}</button>
-    <button class="btn btn--new" (click)="playAgain()" *ngIf="resultStatus !== 'Show Result'">{{ resultStatus }}</button>
-    <div *ngIf="result">
-      Correct Answers: {{ correctAnswers }} | Inocrrect Answers: {{ incorrectAnswers }}
+    <div class="text-center" *ngIf="prevAnswered.length > 10">
+    
+    <!-- See results button -->
+    <button class="btn btn-info" (click)="showResult()" *ngIf="resultStatus === 'Show Results'">{{ resultStatus }}</button>
+    
+    <!-- Play again button -->
+    <button class="btn btn-primary" (click)="playAgain()" *ngIf="resultStatus !== 'Show Results'">{{ resultStatus }}</button>
+    
+    <div *ngIf="result" style="margin-top: 20px;">
+      <h3>Correct Answers: {{ correctAnswers }} <br> Inocrrect Answers: {{ incorrectAnswers }} </h3>
     </div>
   </div>
 

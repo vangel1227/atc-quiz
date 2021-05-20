@@ -10,9 +10,9 @@ export class BackgroundDirective {
 
   @HostListener('click') onAnswered(){
     if(this.correctAnswer)
-      this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'green');
+      this.renderer.setStyle(this.elRef.nativeElement, 'background-color', '#198754');
     else
-      this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'red');
+      this.renderer.setStyle(this.elRef.nativeElement, 'background-color', '#dc3545');
 }
 
 }

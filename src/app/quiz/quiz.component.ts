@@ -26,7 +26,7 @@ export class QuizComponent implements OnInit {
   prevAnswered = [];
   
   result = false;
-  resultStatus = 'Show Result';  
+  resultStatus = 'Show Results';  
 
 
   constructor(private quizService: QuizService) { }
@@ -68,6 +68,7 @@ export class QuizComponent implements OnInit {
     this.result = true;
     this.resultStatus = 'Play Again!';    
   }
+
   playAgain(){
     this.prevAnswered = [];
     this.prevAnswered.push(this.getRandom());
