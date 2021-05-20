@@ -1,33 +1,33 @@
 <div class="container-fluid" style="margin-top: 20px;">
     <div *ngIf="prevAnswered.length < 11">
+    
+    <!-- Question -->
     <h1 class="text-center">{{ quizzes[currentQuiz].question }}</h1>
 
-<div class=" text-center answers" style="margin-top: 20px;">
-<div class="btn-group-vertical answers__list" *ngFor="let quiz of quizzes[currentQuiz].answer" >
-    <button @answer class=" btn btn-warning answers__item" appBackground [correctAnswer]="quiz.correct" type="button" name="options" (click)="onAnswer(quiz.correct)" [disabled]="answerSelected" style="min-width: 300px; margin-top: 5px;">
-        {{ quiz.option }}
-    </button>
-  </div>
-</div>
+    <!-- Quiz answers -->
+      <div class=" text-center answers" style="margin-top: 20px;">
+        <div class="btn-group-vertical answers__list" *ngFor="let quiz of quizzes[currentQuiz].answer" style="min-width: 300px; max-width: 350px; margin: 5px;">
+          <button @answer class="btn btn-warning mx-auto answers__item" appBackground [correctAnswer]="quiz.correct" type="button" name="options" (click)="onAnswer(quiz.correct)" [disabled]="answerSelected">
+              {{ quiz.option }}
+          </button> 
+        </div>
+      </div>
 
-<h3 class="text-center" style="margin-top: 20px;">{{ prevAnswered.length }} of {{ quizzes.length }}</h3>
+    <!-- Tells you what question you're on -->
+    <h3 class="text-center" style="margin-top: 20px;">{{ prevAnswered.length }} of {{ quizzes.length }}</h3>
 
-    
     </div>
 
-
-    <div class="text-center" *ngIf="prevAnswered.length > 10">
+      <div class="text-center" *ngIf="prevAnswered.length > 10">
     
-    <!-- See results button -->
-    <button class="btn btn-info" (click)="showResult()" *ngIf="resultStatus === 'Show Results'">{{ resultStatus }}</button>
+        <!-- See results button -->
+        <button class="btn btn-info" (click)="showResult()" *ngIf="resultStatus === 'Show Results'">{{ resultStatus }}</button>
     
-    <!-- Play again button -->
-    <button class="btn btn-primary" (click)="playAgain()" *ngIf="resultStatus !== 'Show Results'">{{ resultStatus }}</button>
+        <!-- Play again button -->
+        <button class="btn btn-primary" (click)="playAgain()" *ngIf="resultStatus !== 'Show Results'">{{ resultStatus }}</button>
     
-    <div *ngIf="result" style="margin-top: 20px;">
-      <h3>Correct Answers: {{ correctAnswers }} <br> Inocrrect Answers: {{ incorrectAnswers }} </h3>
-    </div>
+      <div *ngIf="result" style="margin-top: 20px;">
+        <h3>Correct Answers: {{ correctAnswers }} <br> Inocrrect Answers: {{ incorrectAnswers }} </h3>
+      </div>
   </div>
-
-
 </div>
