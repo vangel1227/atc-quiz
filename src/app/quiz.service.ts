@@ -67,10 +67,10 @@ export class QuizService {
     {
       question: 'What\'s the weight requirement for an aircraft to be considered heavy?',
       answer: [
-        { option: '250,000 lbs or greater', correct: false },
-        { option: '400,000 lbs or greater', correct: false },
-        { option: '300,000 lbs or greater', correct: true },
-        { option: '280,000 lbs or greater', correct: false }
+        { option: '250,000 lbs. or greater', correct: false },
+        { option: '400,000 lbs. or greater', correct: false },
+        { option: '300,000 lbs. or greater', correct: true },
+        { option: '280,000 lbs. or greater', correct: false }
       ]
     },
     {
